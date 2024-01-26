@@ -1,0 +1,9 @@
+  #spring:
+  #  datasource:
+   #   url: jdbc:mysql://localhost:3306/devdb
+    #  username: root
+    #  password: passwordhere
+    #  driverClassName: com.mysql.cj.jdbc.Driver
+    #  ddl-auto: create-drop
+
+
