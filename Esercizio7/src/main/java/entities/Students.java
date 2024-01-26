@@ -2,14 +2,17 @@ package entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "students", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@Entity
+@Table (name = "students", uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})})
+
 public class Students {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,3 +27,4 @@ public class Students {
     @Column(nullable = false)
     private String email;
 }
+
