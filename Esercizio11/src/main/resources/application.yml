@@ -1,0 +1,24 @@
+spring:
+  datasource:
+  url: jabc:mysql://127.0.0.1:3306/devdb
+  username: root
+  password: passwordhere
+  driver-class-name: con.mysql.cj.jdbc.Driver
+  jpa:
+   database: mysql
+   show_sql: true
+  hibernate:
+   ddl-auto: create
+---
+   environment: test
+   spring:
+     datasource:
+     url: jabc:h2:mem:testdb
+     username: test
+     password: test
+     driver-class-name: org.h2.Driver
+     jpa:
+       database: h2
+     h2:
+       console:
+         enabled: true
