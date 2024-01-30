@@ -1,6 +1,6 @@
-package Controllers;
+package com.example.Esercizio8.Controllers;
 
-import Entities.Car;
+/*import Entities.Car;
 import Repository.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
@@ -71,4 +71,71 @@ public class CarController {
     public void deleteAllCars() {
         carRepository.deleteAll();
     }
+}*/
+
+import com.example.Esercizio8.Entities.Car;
+import com.example.Esercizio8.Repository.CarRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/v1")
+public class CarController {
+
+    @Autowired
+    private CarRepository carRepository;
+
+    @PostMapping("/create")
+    private Car createCar(@RequestBody Car carEntity) {
+        Car carSaved = carRepository.saveAndFlush(carEntity);
+        return carSaved;
+    }
+
+    @GetMapping("/allcars")
+    private List<Car> getAll() {
+        List<Car> allCars = carRepository.findAll();
+        return allCars;
+    }
+
+    @GetMapping("/car/{id}")
+    private Car getCar(@PathVariable long id) {
+        if(carRepository.existsById(id)) {
+            Car savedCar = carRepository.getById(id);
+            return savedCar;
+        } else {
+            return new Car();
+        }
+    }
+
+    @DeleteMapping("/delcar/{id}")
+    public ResponseEntity<String> deleteSingle(@PathVariable long id) {
+        if(carRepository.existsById(id)) {
+            carRepository.deleteById(id);
+            return ResponseEntity.ok("Car deleted successfully");
+        } else {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Car with id: " + id + " not found.");
+        }
+    }
+
+    @DeleteMapping("/delcars")
+    private void deleteAll() {
+        carRepository.deleteAll();
+    }
+
+    @PatchMapping("/typeup/{id}")
+    private Car updateType(@PathVariable long id, @RequestParam String newType) {
+        if(carRepository.existsById(id)) {
+            Car carToPatch = carRepository.getById(id);
+            carToPatch.setType(newType);
+            carRepository.saveAndFlush(carToPatch);
+            return carToPatch;
+        } else {
+            return new Car();
+        }
+    }
+
 }
