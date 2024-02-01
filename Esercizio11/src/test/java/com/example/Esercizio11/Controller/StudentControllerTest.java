@@ -65,4 +65,31 @@ class StudentControllerTest {
 	}
 
 
+	/*@Test
+	void deleteUser() throws Exception{
+		Student student =createStudentNew();
+		assertThat(student.getId()).isNotNull();
+
+		this.mockMvc.perform(delete("/v1/student/delete/"+student.getId()))
+				.andDo(print())
+				.andExpect(status().isOk())
+				.andReturn();
+
+		Student student1 = getStudentFromId(student.getId());
+
+		assertThat(student1).isNull();
+
+	}*/
+
+	/*private Student getStudentFromId(Long id) throws Exception {
+		MvcResult result = this.mockMvc.perform(get("/v1/student/list/"+id))
+				.andDo(print())
+				.andExpect(status().isOk())
+				.andReturn();
+
+		if(result.getResponse().getContentLength() == 0)
+			return null;
+
+		return objectMapper.readValue(result.getResponse().getContentAsString(), Student.class);
+	}*/
 }
