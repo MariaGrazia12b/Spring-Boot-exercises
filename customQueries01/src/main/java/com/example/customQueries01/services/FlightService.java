@@ -15,7 +15,7 @@ public class FlightService {
 
     private static final int numFlights = 50;
     public List<Flight> allFlights() {
-        return flightRepo.findAll();
+        return flightRepo.findAllFlights();
     }
     public void provisionFlight() {
         Random random = new Random();

@@ -15,7 +15,7 @@ import java.util.List;
 public class FlightController {
     @Autowired
     FlightService flightService;
-    @GetMapping("")
+    @GetMapping("getAll")
     public List<Flight> getAllFlights() {
         return flightService.allFlights();
     }
