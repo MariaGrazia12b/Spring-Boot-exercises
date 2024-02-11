@@ -4,11 +4,12 @@ import com.example.Interceptor02.interceptor.MonthInterceptor;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 
-@Component
+@Configuration
 public class SpringMVCConfig implements HandlerInterceptor
 {
     @Autowired

@@ -14,13 +14,29 @@ import lombok.*;
 public class Month {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    @Column(name = "month_number")
+    //private long id;
+    //@Column(name = "month_number")
     private int monthNumber;
-    @Column(name = "english_name")
+    //@Column(name = "english_name")
     private String englishName;
-    @Column(name = "italian_name")
+    //@Column(name = "italian_name")
     private String italianName;
-    @Column(name = "german_number")
+    //@Column(name = "german_number")
     private String germanName;
 }
+
+/*import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+//@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Month {
+
+    private int monthNumber;
+    private String englishName;
+    private String italianName;
+    private String germanName;
+}*/
