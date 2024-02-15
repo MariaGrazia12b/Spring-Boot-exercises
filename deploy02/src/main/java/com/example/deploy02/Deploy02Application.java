@@ -1,13 +1,13 @@
-package com.example.Live08;
+package com.example.deploy02;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Live08Application {
+public class Deploy02Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Live08Application.class, args);
+		SpringApplication.run(Deploy02Application.class, args);
 	}
 
 }
