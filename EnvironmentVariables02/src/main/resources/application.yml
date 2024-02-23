@@ -1,8 +1,13 @@
+spring:
+  profile:
+    active: "test"
 server:
   port: 4000
-  welcomeMsg: "Hello from test"
-
+welcomeMsg: "Hello from test"
 ---
+spring:
+  profile:
+    active: "prod"
 server:
-  port: 5000
-  welcomeMsg: "Hello from prod"
+  port: 6000
+welcomeMsg: "Hello from prod"
